@@ -16,12 +16,19 @@ export default function Login() {
   };
 
   const isFormValid = () => {
-    return user.name && user.phone && user.email && user.password;
+    return user.name && user.phone && user.email && user.password.length >10;
   };
+
+  const handleSubmit = (e)=>{
+    if(isFormValid()){
+      alert("Form submitted successfully");
+      e.preventDefault();
+    }
+  }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* name */}
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
